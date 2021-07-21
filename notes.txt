@@ -1,3 +1,23 @@
 1. COURSE INTRODUCTION
     - Two approaches when using Vue JS: Widget vs Full-Page
     - As opposed to vanilla JS, Vue JS starts from the end result that is to be achieved 
+
+2. VUE JS BASICS
+    - "Vue.createApp([OPTIONS OBJECT])" creates a Vue app that controls a specified HTML element and all its children
+    - ".mount([CSS SELECTOR])" specifies the controlled HTML element
+    - Predefined object options properties:
+        - data: [FUNCTION]
+            - Is always a function that returns an object
+            - Anything specified in the return object can be used to manipulate CSS
+            - Placing {{ [KEY FROM DATA()] }} in Vue-controlled HTML will convert into the value specified in the Vue app
+        - methods: [OBJECT]
+            - Is always an object that only contains functions/methods
+            - Methods can be called inside interpolation syntax (e.g. "{{ functionInMethods() }}")
+            - Methods can access all data() properties by using "this.[PROPERTY]"
+    - Interpolation: Using "{{ [VUE DATA REFERENCE] }}" (only available in between actual HTML tags, not within tags or in attributes)
+    - All Vue JS directives for HTML start with "v-"
+        - "v-bind:[ATTRIBUTE]=[VUE DATA REFERENCE]" used inside an opening tag enables referencing Vue data in attributes
+        - "v-for=[VUE DATA ITEM] in [VUE DATA ARRAY]" creates on HTML element for each item in the specified array
+        - "v-html=[HTML SPECIFIED IN VUE DATA]" enables HTML evaluation from Vue JS into HTML output
+            - Not recommended for security reasons
+            

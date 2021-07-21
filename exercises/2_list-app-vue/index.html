@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vue Basics</title>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://unpkg.com/vue@next" defer></script>
+  <script src="app.js" defer></script>
+</head>
+
+<body>
+  <header>
+    <h1>Vue Course Goals</h1>
+  </header>
+  <section id="user-goal">
+    <h2>My primary Goal</h2>
+    <p class="goal--regular" v-for="goal in goals">{{ goal }}</p>
+    <p class="goal--random">{{ randomGoal() }}</p>
+    <p class="goal--learn-more">Learn more about <a v-bind:href="moreInfoLink">Vue JS</a></p>
+    <p class="goal--button" v-html="moreInfoButton"></p>
+  </section>
+</body>
+
+</html>
