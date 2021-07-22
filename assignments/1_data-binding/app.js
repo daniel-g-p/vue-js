@@ -3,7 +3,7 @@ const app = Vue.createApp({
         return {
             name: "Daniel",
             age: 19,
-            imageLink: {
+            image: {
                 url: "https://www.sportscasting.com/wp-content/uploads/2020/01/Los-Angeles-Laker-Kobe-Bryant.jpg",
                 alt: "Kobe Image"
             }

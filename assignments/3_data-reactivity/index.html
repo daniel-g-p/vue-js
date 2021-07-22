@@ -12,16 +12,13 @@
 </head>
 
 <body>
+  <header>
+    <h1>Reactivity in Action</h1>
+  </header>
   <section id="assignment">
-    <h2>{{ name }}</h2>
-    <p>{{ age }}</p>
-    <p>{{ ageInFiveYears() }}</p>
-    <p>{{ Math.floor(Math.random() * 24) + 1 }}</p>
-    <p>{{ randomNumber() }}</p>
-    <div>
-      <img v-bind:src="image.url" v-bind:alt="image.alt" />
-    </div>
-    <input type="text" v-bind:value="name" />
+    <button v-on:click="add(5)">Add 5</button>
+    <button v-on:click="add(1)">Add 1</button>
+    <p>Result: {{ result }}</p>
   </section>
 </body>
 

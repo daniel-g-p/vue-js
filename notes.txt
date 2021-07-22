@@ -14,10 +14,53 @@
             - Is always an object that only contains functions/methods
             - Methods can be called inside interpolation syntax (e.g. "{{ functionInMethods() }}")
             - Methods can access all data() properties by using "this.[PROPERTY]"
+        - computed: [OBJECT]
+            - Similar to methods but aware of their dependencies
+            - Are only re-executed in the browser if any dependencies change
+            - Unlike methods, computed properties can't be called but only pointed to (ok: {{ computedProperty }}, not ok: {{ computedProperty }})
+            - Work like methods behind the scenes, but are treated like data in HTML
+            - Better than methods in most cases for performance
+        - watch: [OBJECT]
+            - Contains methods that have the same name as data properties
+            - When the linked property changes, the watcher method will run
+            - Watcher methods provide a "value" argument by default, equal to the value of the linekd data property
+            - Could also accept two arguments, "oldValue" and "newValue"
+            - Computed properties usually better than watcher methods because they can be linked to more than one data property
     - Interpolation: Using "{{ [VUE DATA REFERENCE] }}" (only available in between actual HTML tags, not within tags or in attributes)
     - All Vue JS directives for HTML start with "v-"
         - "v-bind:[ATTRIBUTE]=[VUE DATA REFERENCE]" used inside an opening tag enables referencing Vue data in attributes
         - "v-for=[VUE DATA ITEM] in [VUE DATA ARRAY]" creates on HTML element for each item in the specified array
         - "v-html=[HTML SPECIFIED IN VUE DATA]" enables HTML evaluation from Vue JS into HTML output
             - Not recommended for security reasons
-            
+    - All Vue data and methods are saved to a global "this" object accessible from within
+
+3. VUE EVENTS
+    - "v-on:[DOM EVENT]="method"" will call a specified method when an event is fired
+    - Putting JavaScript logic into an HTML document with Vue is considered bad practice
+    - Pointing at a method (v-on:[DOM EVENT]="method") instead of calling it (v-on:[DOM EVENT]="method()") grants access to the complete event object
+    - "$event" is a built-in Vue parameter that can be used to access the event object event when a method is called (e.g. v-on:click="method($event, arg1)"
+    - "v-on:event" followed by a ".event-modifier" allows you to modify the default behavior of an event
+    - Modifiers may be chained onto each other
+    - Modifier list: https://v3.vuejs.org/guide/events.html#event-modifiers
+    - Key modifiers speficy the specifice value of the event that will trigger it
+    - "v-model="[VUE DATA REFERENCE]"" determines an input that is completely managed by Vue (shortcut for v-bind and v-on, called two-way binding)
+    - PROBLEM: Vue will re-execute every method found in a controlled element, even if there is no need to re-run a particular method
+    - SOLUTION: Computed properties
+
+4. METHODS VS COMPUTED PROPERTIES VS WATCHERS
+    - Methods:
+        - Used for data binding and event binding
+        - Best used for event binding that needs to be re-executed often
+    - Computed properties:
+        - Used for data binding only
+        - Best used for data updates that depends on other data
+    - Watchers:
+        - Never used in the actual HTML code but always refer to the Vue data or computed object
+        - Best used for non-data updates that depend on other data
+
+5. VUE DIRECTIVES AND SHORTHANDS
+    - v-bind:[DATA] (Shortcut: :)
+    - v-on:[EVENT] (Shortcut: @)
+    - v-once:[DATA]
+    - v-for:[FOR LOOP]
+    - v-model:[DATA]
