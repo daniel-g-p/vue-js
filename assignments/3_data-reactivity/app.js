@@ -6,7 +6,6 @@ const app = Vue.createApp({
     },
     computed: {
         result() {
-            console.log("RESULT");
             if (this.num > 37) {
                 return "Too much!"
             } else if (this.num === 37) {
@@ -18,13 +17,11 @@ const app = Vue.createApp({
     },
     methods: {
         add(num) {
-            console.log("ADD");
             this.num += num;
         }
     },
     watch: {
         result() {
-            console.log("WATCH");
             const data = this;
             setTimeout(() => {
                 data.num = 0;

@@ -64,3 +64,12 @@
     - v-once:[DATA]
     - v-for:[FOR LOOP]
     - v-model:[DATA]
+
+6. DYNAMIC STYLING
+    - "v-bind:style="{ cssProperty: 'value' }"" enables dynamic styling using camel casing with Vue (bad practice because of inline styles)
+    - "v-bind:class="{ 'cssClass': boolean }"" will dynamically set styles using CSS classes instead of inline styles
+    - Both PROPERTY and V-BIND:PROPERTY can be set on the same HTML element if need be
+    - Ways to set dynamic styling in VUe:
+        1. Place all static classes in the standard class attribute and bind all dynamic classes to return an object from Vue
+        2. Place all classes in v-bind:class in the form of an array (e.g. v-bind:class="[staticClass, staticClass, computedProperty]")
+        
