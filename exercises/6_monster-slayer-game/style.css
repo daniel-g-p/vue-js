@@ -1,0 +1,158 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+::selection {
+    color: white;
+    background-color: crimson;
+}
+
+html {
+    font: 700 100%/1 "Jost", sans-serif;
+}
+
+body {
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.heading-1 {
+    color: white;
+    background-color: crimson;
+    padding: 3rem;
+    font-size: 2.25rem;
+}
+
+.heading-2 {
+    font-size: 1.5rem;
+}
+
+.game {
+    padding: 3rem 1.5rem;
+    max-width: 48rem;
+    margin: 0 auto;
+}
+
+.player {
+    border: 2px solid lightgray;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    transition: border-color 0.75s ease, transform 0.75s ease, opacity 0.75s ease;
+}
+
+.player__name {
+    margin-bottom: 1.5rem;
+}
+
+.player__health-bar {
+    position: relative;
+    width: 100%;
+    height: 3rem;
+    background-color: whitesmoke;
+    border: 1px solid lightgrey;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.player__health-status {
+    display: block;
+    width: 75%;
+    height: 100%;
+    background-color: mediumaquamarine;
+    transition: width 0.5s ease;
+}
+
+.player__health-number {
+    font-size: 1.25rem;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.player--winner {
+    border-color: mediumaquamarine;
+    transform: scale(1.05);
+}
+
+.player--loser {
+    border-color: crimson;
+    transform: scale(0.95);
+    opacity: 0.25;
+}
+
+.player--draw {
+    border-color: coral;
+}
+
+.controls {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    margin-bottom: 3rem;
+}
+
+.controls__button {
+    font: 700 100%/1 "Jost", sans-serif;
+    padding: 0.75em 1.5em;
+    border: none;
+    outline: none;
+    color: white;
+    background-color: purple;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.25s ease, opacity 0.25s ease;
+}
+
+.controls__button:hover {
+    background-color: darkmagenta;
+}
+
+.controls__button--disabled {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.controls__button:disabled {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.controls__button--special {
+    width: 100%;
+    margin-bottom: 1.5rem;
+}
+
+.log {
+    border: 1px solid lightgray;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+}
+
+.log__list {
+    list-style: none;
+    margin-top: 1.5rem;
+}
+
+.log__item {
+    font-size: 1.25rem;
+    line-height: 1.25;
+    color: grey;
+}
+
+.log__item:not(:last-child) {
+    margin: 0.75rem;
+}
+
+.log__item--green {
+    color: mediumaquamarine;
+}
+
+.log__item--red {
+    color: crimson;
+}

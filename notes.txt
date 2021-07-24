@@ -40,9 +40,9 @@
     - Pointing at a method (v-on:[DOM EVENT]="method") instead of calling it (v-on:[DOM EVENT]="method()") grants access to the complete event object
     - "$event" is a built-in Vue parameter that can be used to access the event object event when a method is called (e.g. v-on:click="method($event, arg1)"
     - "v-on:event" followed by a ".event-modifier" allows you to modify the default behavior of an event
-    - Modifiers may be chained onto each other
+    - Modifiers may be chained onto each other (.prevent, .stop, etc.)
     - Modifier list: https://v3.vuejs.org/guide/events.html#event-modifiers
-    - Key modifiers speficy the specifice value of the event that will trigger it
+    - Key modifiers speficy the specific value of the event that will trigger it
     - "v-model="[VUE DATA REFERENCE]"" determines an input that is completely managed by Vue (shortcut for v-bind and v-on, called two-way binding)
     - PROBLEM: Vue will re-execute every method found in a controlled element, even if there is no need to re-run a particular method
     - SOLUTION: Computed properties
@@ -64,6 +64,9 @@
     - v-once:[DATA]
     - v-for:[FOR LOOP]
     - v-model:[DATA]
+    - v-if=[CONDITION]
+    - v-else
+    - v-show=[CONDITION]
 
 6. DYNAMIC STYLING
     - "v-bind:style="{ cssProperty: 'value' }"" enables dynamic styling using camel casing with Vue (bad practice because of inline styles)
@@ -72,4 +75,17 @@
     - Ways to set dynamic styling in VUe:
         1. Place all static classes in the standard class attribute and bind all dynamic classes to return an object from Vue
         2. Place all classes in v-bind:class in the form of an array (e.g. v-bind:class="[staticClass, staticClass, computedProperty]")
-        
+
+7. CONDITIONALS
+    - "v-if="testing-function"" only displays an HTML element if the expression returns true
+    - "v-else-if="testing-function"" "v-else" and  can be used on an HTML element that is directly adjacent to an element with v-if
+    - v-if, v-if-else, and v-else can remove elements entirely from the dom, whereas v-show only manages the visibility of the element
+    - Syntaxes for v-for:
+        - <div v-for="item in array">{{ item }}</div> 
+        - <div v-for="(item, index) in array">{{ item }} - {{ index }}</div> 
+    - v-for can also be used to loop through the values inside of an object with the same "item in array/object" syntax
+    - v-for with objects can grant access to object keys with v-for="(value, key) in object"
+    - Function arguments defined in a v-directive are available everywhere else inside that element
+    - "v-bind:key" fixes the bug encountered in v-for elements by "locking" the element relative to the specified value
+    - "v-for" should always be paired with "v-bind:key" and never be paired with "v-if" of "v-show"
+    
