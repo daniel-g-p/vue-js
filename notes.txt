@@ -89,3 +89,21 @@
     - "v-bind:key" fixes the bug encountered in v-for elements by "locking" the element relative to the specified value
     - "v-for" should always be paired with "v-bind:key" and never be paired with "v-if" of "v-show"
     
+8. VUE BEHIND THE scenes
+    - Vue builds dynamic components using proxys ("new Proxy(data object, handler object")
+    - Handler object contains default functions that define how the data object is managed when changes occur
+    - There may be more than one Vue app in one script and on one page
+    - One HTML part can only be controlled by one Vue app, and each Vue app can only control one HTML element
+    - Setting 'ref="identifier"' on an HTML element and calling this.$refs.identifier in Vue returns the actual HTML element
+    - Vue directives and properties are omitted from HTML when it is rendered
+    - Upon data changes, Vue compares all the changes inside of a virtual DOM, not affecting performance on the page
+    - Vue instance lifecycle:
+        1. beforeCreate -> Empty Vue app is created
+        2. create() -> Vue app now includes data, methods, etc.
+        3. beforeMount() -> App template is compiled based on app content
+        4. mounted() -> Browser renders the compiled Vue app
+        5. beforeUpdate() -> Data changes in the Vue app are detected
+        6. updated() -> Data is processed and updated in the DOM
+        7. beforeUnmount() -> App termination request is detected
+        8. unmounted() -> App is definitely terminated and shut down in the DOM
+    - Instance lifecycle hooks can be added inside the Vue.createApp object
