@@ -107,3 +107,10 @@
         7. beforeUnmount() -> App termination request is detected
         8. unmounted() -> App is definitely terminated and shut down in the DOM
     - Instance lifecycle hooks can be added inside the Vue.createApp object
+
+9. COMPONENTS
+    - app.component() creates a new component in the context of the specified app
+    - Component names should always contain a dash to avoid conflicts with built-in HTML tags
+    - Components are similar to Vue apps in that they also have data, methods, computed properties etc.
+    - Generally, an HTML template is defined in the component in the form of an HTML string
+    - Components are implemented using regular HTML tags nme with the attributed name
