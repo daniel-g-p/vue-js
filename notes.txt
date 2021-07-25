@@ -114,3 +114,9 @@
     - Components are similar to Vue apps in that they also have data, methods, computed properties etc.
     - Generally, an HTML template is defined in the component in the form of an HTML string
     - Components are implemented using regular HTML tags nme with the attributed name
+
+10. VUE DEVELOPMENT ENVIRONMENT
+    - "npm install -g @vue/cli" installs the latest version of the Vue command line interface
+    - "vue --version" checks for the latest version installed
+    - "vue create [PROJECT NAME]" creates a Vue project skeleton in the working directory
+    - "npm run serve" starts a localhost server to run the Vue application
