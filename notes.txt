@@ -138,3 +138,26 @@
    - camelCasing: Inside of Vue app/component objects
    - PascalCasing: Imported objects and apps themselves
    - kebab-casing: Inside of HTML templates
+
+13. DATA FLOWS
+    - Vue uses monodirectional data-flows, meaning that a child component cannot modify a prop passed down from the parent by default
+    - Props may be converted into a regular data property, which allows the component to change it internally
+    - Prop validation can be done by passing props as a "property: type" object instead of an array
+    - Individual props can be validated in detail by passing in an object similar to JOI or Mongoose (type, required, default, validator function)
+    - this.$emit([kebab-cased-event], arguments...) fires an event that can be detected by a parent app
+    - "props" is an array inside a component's object specifying the incoming properties that may be used on the component
+    - "emits" is an array inside a component's object specifying the outgoing events that may be fired in the componenent
+    - Emits aren't mandatory but are useful to document components and their data flows in both directions
+    - An entire object can be passed with v-bind without any specified attribute (Props on the component still need to be specified one by one)
+    - Events and properties that are defined on the parent template and are not defined on the child component will automatically fall through and be made available on the component under this.$attrs
+    - The "provide" object specifies the data from a parent element that should be made available to all child and nested child components
+    - The "inject" array imports the data provided by a parent component
+    - Provide should rather be specified as a method that returns an object to reflect dynamic changes to the parent data
+    - "Provide" as a method can simply access data under "this"
+    - Events can be reverse-engineered so that the method to be called is provided in a parent component and injected in a child component. All data references will remain stable and this allows to avoid having to pass on emits one component at a time
+    - Component-to-component communication doesn't work between siblings
+    - Provide and inject should only be considered when there is more than one "pass-through" component in a row
+    - Different ways of passing data:
+        - PROPS: Passing data down to the next child component
+        - EMITS: Passing data up to the next parent component
+        - PROVIDES / INJECTS: Passing data down to all nested child components 
