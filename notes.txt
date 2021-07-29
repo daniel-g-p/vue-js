@@ -160,4 +160,19 @@
     - Different ways of passing data:
         - PROPS: Passing data down to the next child component
         - EMITS: Passing data up to the next parent component
-        - PROVIDES / INJECTS: Passing data down to all nested child components 
+        - PROVIDES / INJECTS: Passing data down to all nested child components
+
+14. ADVANCED COMPONENTS
+    - Component imports can be moved to actual Vue files to create local components
+    - Local components reduce the load time on application startup
+    - "components" object specifies the names of imported components that will be used in this component
+    - "scoped" keyword in style part will limit the defined styles to the current component
+    - <slot></slot> tags inside of a template can define globally available components that can be reused across an app while also using scoped styling
+    - Slots can carry names whenevere multiple are used in the same template
+    - <template v-slot:[SLOT NAME]>[CONTENT]</template> specifies which slot the content is destined for
+    - Components that use slots get access to "this.$slots" in the mounted() method
+    - Wrapping slots in a container and using v-if on that container prevents empty HTML tags from being rendered
+    - Scoped slots can be used to grant parent components access to the child's properties to be used in the component slots
+    - Dynamic components with the Vue-specific <component> tag and the v-bind:is attribute will define the name of an HTML tag based on a CONDITION
+    - Wrapping a <component> inside <keep-alive> tags ensures that user inpu ocuing in the component isn't lost whenever the component changes
+    - <teleport to="[TARGET]"> enhances semantic placement of elements regardless of how they are treated in nested components
