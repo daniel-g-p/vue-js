@@ -174,5 +174,43 @@
     - Wrapping slots in a container and using v-if on that container prevents empty HTML tags from being rendered
     - Scoped slots can be used to grant parent components access to the child's properties to be used in the component slots
     - Dynamic components with the Vue-specific <component> tag and the v-bind:is attribute will define the name of an HTML tag based on a CONDITION
-    - Wrapping a <component> inside <keep-alive> tags ensures that user inpu ocuing in the component isn't lost whenever the component changes
+    - Wrapping a <component> inside <keep-alive> tags ensures that user input ocurring in the component isn't lost whenever the component changes
     - <teleport to="[TARGET]"> enhances semantic placement of elements regardless of how they are treated in nested components
+
+15. VUE JS CODE STYLE CONVENTIONS
+    - Multi-word components
+    - Props defined with object syntax with good detail (at least type should be defined)
+    - v-for always paired with v-bind:key
+    - v-for and v-if never to be used on the same element
+    - scoped styles on all components except the root App
+    - private methods defined outside of the Vue app object
+    - separate file for each component
+    - component files named with PascalCase or kebab-case
+    - standard / static component files prefixed with "Base"
+    - single instance component files prefixed with "The"
+    - tightly coupled child components prefixed with parent name
+    - words in component file names from general to specific
+    - empty components defined with self-closing syntax
+    - PascalCase everywhere except for DOM templates
+    - full words over abbreviations for component naming
+    - props defined in camelCase but passed in kebab-case
+    - elements with multiple attributes spread across multiple lines
+    - computed properties over built-in logic
+    - computed properties modularized into multiple computed properties
+    - HTML attributes always wrapped in quotes
+    - directive shorthands used always or never
+    - attribute order
+        1. definition (is)
+        2. list rendering (v-for)
+        3. conditionals (v-if, v-else-if, v-else, v-show, v-cloak)
+        4. render modifiers (v-pre, v-once)
+        5. global identification (id)
+        6. unique attributes (ref, key)
+        7. two-way-binding (v-model)
+        8. other
+        9. events (v-on)
+        10. contant (v-html, v-text)
+    - consistent .vue file structure (template, script, style)
+    - class selectors over element selectors in styles
+    - props and events over provides, injects, and $parent
+    - Vuex over this.$root for state management
