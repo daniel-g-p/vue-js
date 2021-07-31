@@ -214,3 +214,15 @@
     - class selectors over element selectors in styles
     - props and events over provides, injects, and $parent
     - Vuex over this.$root for state management
+
+16. FORMS
+    - v-model modifiers
+        - .number: forces conversion of the input value to a number
+        - .lazy: changes v-model to update on "change" event rather than "input" event
+        - .trim: trims the user's input by removing leading and trailing spaces and tabs
+    - v-model can be used on select inputs
+    - v-model with select can be leveraged to set starting value from Vue JS
+    - v-model also works with chechboxes when you use value
+    - v-model used on a single checkbox will return a boolean
+    - blur is a form specific event that is triggered when an input loses focus
+    - v-model can be used on custom components by leveraging the modelValue prop and the update:modelValue emit 
